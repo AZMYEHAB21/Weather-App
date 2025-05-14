@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>توقعات الطقس -Weather forecast
+</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <i class="fas fa-cloud-sun"></i>
+        <h1>توقعات الطقس</h1>
+      </div>
+      <div class="search-container">
+        <input type="text" id="city-input" placeholder="أدخل اسم المدينة...">
+        <button id="search-btn"><i class="fas fa-search"></i> بحث</button>
+        <button id="location-btn" title="استخدام موقعي الحالي"><i class="fas fa-map-marker-alt"></i></button>
+      </div>
+      <div class="settings">
+        <button id="lang-toggle" title="تغيير اللغة">
+          <i class="fas fa-language"></i> EN
+        </button>
+        <button id="unit-toggle" title="تغيير وحدة درجة الحرارة">
+          <i class="fas fa-temperature-high"></i> °C
+        </button>
+      </div>
+    </header>
+
+    <div class="loader" id="loader">
+      <div class="spinner"></div>
+      <p>جاري تحميل بيانات الطقس...</p>
+    </div>
+
+    <div class="error-container" id="error-container">
+      <p id="error-message">لم يتم العثور على المدينة. الرجاء المحاولة مرة أخرى.</p>
+    </div>
+
+    <main id="weather-container" class="hidden">
+      <section class="current-weather">
+        <div class="current-weather-info">
+          <h2 id="city-name">اسم المدينة</h2>
+          <p id="current-date">التاريخ</p>
+          <div class="temperature">
+            <span id="temperature">--</span><span id="temp-unit">°م</span>
+          </div>
+          <p id="weather-description">وصف الطقس</p>
+          <div class="weather-details">
+            <div class="detail">
+              <i class="fas fa-temperature-low"></i>
+              <span class="label">الإحساس:</span>
+              <span id="feels-like">--</span><span class="unit">°م</span>
+            </div>
+            <div class="detail">
+              <i class="fas fa-tint"></i>
+              <span class="label">الرطوبة:</span>
+              <span id="humidity">--</span><span class="unit">%</span>
+            </div>
+            <div class="detail">
+              <i class="fas fa-wind"></i>
+              <span class="label">الرياح:</span>
+              <span id="wind-speed">--</span><span class="unit"> كم/س</span>
+            </div>
+            <div class="detail">
+              <i class="fas fa-compress-arrows-alt"></i>
+              <span class="label">الضغط:</span>
+              <span id="pressure">--</span><span class="unit"> هـ.ب</span>
+            </div>
+          </div>
+        </div>
+        <div class="current-weather-icon">
+          <img id="weather-icon" src="/placeholder.svg?height=150&width=150" alt="أيقونة الطقس">
+        </div>
+      </section>
+
+      <section class="forecast">
+        <h3><i class="fas fa-calendar-alt"></i> توقعات الطقس لـ 5 أيام</h3>
+        <div class="forecast-container" id="forecast-container">
+          <!-- سيتم إضافة بطاقات التوقعات هنا ديناميكيًا -->
+        </div>
+      </section>
+
+      <section class="hourly-forecast">
+        <h3><i class="fas fa-clock"></i> توقعات الساعات القادمة</h3>
+        <div class="hourly-container" id="hourly-container">
+          <!-- سيتم إضافة توقعات الساعات هنا ديناميكيًا -->
+        </div>
+      </section>
+
+      <section class="extra-info">
+        <div class="sun-info">
+          <div class="sun-card">
+            <i class="fas fa-sun"></i>
+            <span class="label">شروق الشمس</span>
+            <span id="sunrise-time">--:--</span>
+          </div>
+          <div class="sun-card">
+            <i class="fas fa-moon"></i>
+            <span class="label">غروب الشمس</span>
+            <span id="sunset-time">--:--</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 AZMY EHAB. جميع الحقوق محفوظة.</p>
+      <p>البيانات مقدمة من <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
